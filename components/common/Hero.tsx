@@ -1,106 +1,83 @@
 "use client";
 
-import { Box, VStack, Heading, Text, HStack, Button } from "@chakra-ui/react";
+import { Box, VStack, Heading, Text, Button } from "@chakra-ui/react";
+import { marginX } from "@/utils/constants";
+import { Poppins } from "next/font/google";
 
 const HeroSection: React.FC = () => {
   return (
     <Box
       position="relative"
       w="100%"
-      h={{ base: "60vh", sm: "75vh", md: "75vh" }}
+      h="75vh" // Hero height
       overflow="hidden"
+      fontFamily="Poppins"
+      bg="transparent" // Prevent any dark background
     >
-      {/* Background Image (extend to the top of the viewport so it shows under a fixed nav) */}
-      <Box
-        top={0}
-        left={0}
-        w="100%"
-        h="100vh"
-        bgImage="url('/event.jpg')"
-        bgSize="cover"
-        bgPos="center"
-        pointerEvents="none"
-      />
-
-      {/* Black Overlay */}
+      {/* Background Image */}
       <Box
         position="absolute"
         top={0}
         left={0}
         w="100%"
         h="100%"
-        bg="rgba(0,0,0,0.35)"
-        zIndex={1}
+        bgImage="url('/event.jpg')"
+        bgSize="cover"
+        bgPos="center"
+        zIndex={0}
       />
-      {/* Hero Content */}
+
+      {/* Content */}
       <VStack
         position="relative"
-        zIndex={2}
+        zIndex={1}
         h="100%"
-        justify={{ base: "flex-end", sm: "center", md: "center" }} // push down on mobile
-        align="center"
-        gap={{ base: 3, md: 4 }}
-        textAlign="center"
-        px={{ base: 4, sm: 6, md: 8 }}
-        pb={{ base: 10, sm: 0 }} // extra bottom padding for mobile
-        color="white"
-        fontFamily="Poppins"
+        justify="center"
+        align="flex-start"
+        gap={6}
+        px={{ base: 6, md: 16, lg: 24 }}
+        maxW="800px"
+        marginX={marginX}
       >
-        <Heading
-          fontSize={{ base: "xl", sm: "2xl", md: "5xl", lg: "6xl" }}
-          fontWeight="bold"
-          textAlign="center"
-          color="#FFFFFF"
-        >
-          Who We Are
-        </Heading>
-
+        {/* Small Tagline */}
         <Text
-          fontSize={{ base: "sm", sm: "md", md: "xl" }}
-          maxW={{ base: "90%", md: "600px" }}
+          color="white"
+          fontSize={{ base: "md", md: "lg" }}
+          fontWeight="medium"
+          fontFamily="arial"
+          textShadow="1px 1px 2px rgba(0,0,0,0.7)" // subtle shadow for readability
         >
-          A Trusted Partner In Institutional and Retail Investment Solutions.
+          We Are The Future Of Events
         </Text>
 
-        {/* Buttons: stacked on mobile */}
-        <HStack
-          gap={4}
-          mt={4}
-          flexDirection={{ base: "column", sm: "row" }}
-          w={{ base: "full", sm: "auto" }}
+        {/* Main Heading */}
+        <Heading
+          color="white"
+          lineHeight="1.1"
+          fontWeight="bold"
+          fontFamily="arial"
+          fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
+          textShadow="2px 2px 4px rgba(0,0,0,0.7)" // subtle shadow for readability
         >
-          <Button
-            color="white"
-            w={{ base: "full", sm: "auto" }}
-            _hover={{ bg: "#00CAFF" }}
-            size={{ base: "md", sm: "lg" }}
-            py={{ base: 2, sm: 4 }}
-            onClick={() => {
-              const section = document.getElementById("section2");
-              if (section) {
-                section.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-          >
-            Meet Our Team
-          </Button>
+          Entertainment <br />
+          Equipment <br />
+          Rental & Events <br />
+          Management
+        </Heading>
 
-          <Button
-            color="white"
-            w={{ base: "full", sm: "auto" }}
-            _hover={{ bg: "#00CAFF" }}
-            size={{ base: "md", sm: "lg" }}
-            py={{ base: 2, sm: 4 }}
-            onClick={() => {
-              const section = document.getElementById("section3");
-              if (section) {
-                section.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-          >
-            Learn More
-          </Button>
-        </HStack>
+        {/* CTA Button */}
+        <Button
+          bg="#E30079"
+          color="white"
+          size="xl" // Increase Chakra size
+          px={14} // More horizontal padding
+          py={8} // More vertical padding
+          fontSize="lg" // Larger text
+          borderRadius="full"
+          _hover={{ bg: "#ff0090" }}
+        >
+          Learn More About Us
+        </Button>
       </VStack>
     </Box>
   );

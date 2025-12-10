@@ -2,36 +2,24 @@ export const marginX = { base: "3%", sm: "2%", md: "4%", lg: "6%" };
 
 export const navItems = [
   {
-    label: "Individual",
+    label: "Home",
     href: "/",
-    children: [
-      { label: "Our Funds", href: "/individual/MMF&FIF" },
-      { label: "Our Portfolios", href: "/#investing" },
-      { label: "Go Global", href: "/global-investing" },
-    ],
   },
   {
-    label: "Institutional",
-    href: "/institutional",
-    children: [
-      { label: "Our Approach", href: "/institutional/treasury" },
-      { label: "Resources", href: "/tools_and_resources" },
-    ],
+    label: "Who We Are",
+    href: "/AboutUs",
+
   },
   {
-    label: "Advisory",
-    href: "/advisory",
+    label: "What We Do",
+    href: "/Services",
   },
   {
-    label: "About Us",
-    href: "/about-us",
+    label: "What We've Done",
+    href: "/Projects",
   },
   {
-    label: "Investor's Companion",
-    href: "/tools_and_resources",
-  },
-  {
-    label: "Calculator",
-    href: "/calculator",
+    label: "Contact Us",
+    href: "/ContactUs",
   },
 ];
