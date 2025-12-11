@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Flex, Image, Text, Button, Link } from "@chakra-ui/react";
-import { marginX } from "@/utils/constants";
+const marginX = { base: 12, md: 16, lg: 24 };
 
 interface ServiceProps {
   imagePosition: "left" | "right";
@@ -57,16 +57,12 @@ const Service: React.FC<ServiceProps> = ({
           </Text>
 
           <Link href="/ContactUs" style={{ textDecoration: "none" }}>
-<<<<<<< HEAD
             <Button
               color="white"
               size="lg"
               borderRadius="full"
               px={8}
             >
-=======
-            <Button color="white" size="lg" borderRadius="full" px={8}>
->>>>>>> b8a4a2114227169076fd83b564dd64de1c242e8d
               Request A Quote
             </Button>
           </Link>
@@ -133,12 +129,8 @@ const ServicesPage: React.FC = () => {
 
   return (
     <Box bg="white" py={20}>
-<<<<<<< HEAD
       
       <Box textAlign="left" mb={16}  marginX={marginX} pl={{ base: 12, md: 16, lg: 24 }} pr={8}>
-=======
-      <Box textAlign="left" mb={16} marginX={marginX}>
->>>>>>> b8a4a2114227169076fd83b564dd64de1c242e8d
         <Text fontSize="lg" fontWeight="medium" color="#d63384">
           What We Do
         </Text>
