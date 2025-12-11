@@ -51,8 +51,8 @@ const MainNav = () => {
             priority
             src="/Images/hs-logo.png"
             alt="logo"
-            width={100}
-            height={150}
+            width={180}
+            height={220}
             style={{ cursor: "pointer" }}
           />
         </ChakraLink>
@@ -64,20 +64,20 @@ const MainNav = () => {
         justify="center"
         display={{ base: "none", md: "flex" }}
       >
-        <HStack as="nav" gap={6}>
+        <HStack as="nav" gap={12}>
           {navItems.map((item, i) => (
             <ChakraLink
               key={i}
               as={NextLink}
               href={item.href || "#"}
-              _hover={{ textDecoration: "none" }}
+            
             >
               <Button
                 variant="ghost"
-                fontWeight="semibold"
+                fontWeight="medium"
                 fontSize="md"
                 color="white"
-                _hover={{ color: "white", opacity: 0.8 }}
+               
               >
                 {item.label}
               </Button>

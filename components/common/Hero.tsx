@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Box, VStack, Heading, Text, Button } from "@chakra-ui/react";
 import { marginX } from "@/utils/constants";
 import { Poppins } from "next/font/google";
@@ -45,7 +46,7 @@ const HeroSection: React.FC = () => {
           fontSize={{ base: "md", md: "lg" }}
           fontWeight="medium"
           fontFamily="arial"
-          textShadow="1px 1px 2px rgba(0,0,0,0.7)" // subtle shadow for readability
+   
         >
           We Are The Future Of Events
         </Text>
@@ -57,7 +58,7 @@ const HeroSection: React.FC = () => {
           fontWeight="bold"
           fontFamily="arial"
           fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
-          textShadow="2px 2px 4px rgba(0,0,0,0.7)" // subtle shadow for readability
+        
         >
           Entertainment <br />
           Equipment <br />
@@ -66,18 +67,21 @@ const HeroSection: React.FC = () => {
         </Heading>
 
         {/* CTA Button */}
-        <Button
-          bg="#E30079"
-          color="white"
-          size="xl" // Increase Chakra size
-          px={14} // More horizontal padding
-          py={8} // More vertical padding
-          fontSize="lg" // Larger text
-          borderRadius="full"
-          _hover={{ bg: "#ff0090" }}
-        >
-          Learn More About Us
-        </Button>
+        <Link href="/AboutUs">
+          <Button
+            bg="#E30079"
+            color="white"
+            size="xl" // Increase Chakra size
+            px={14} // More horizontal padding
+            py={8} // More vertical padding
+            fontSize="lg" // Larger text
+            borderRadius="full"
+            _hover={{ bg: "#ff0090" }}
+            cursor="pointer"
+          >
+            Learn More About Us
+          </Button>
+        </Link>
       </VStack>
     </Box>
   );
