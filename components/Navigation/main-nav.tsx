@@ -51,19 +51,15 @@ const MainNav = () => {
             priority
             src="/Images/hs-logo.png"
             alt="logo"
-            width={100}
-            height={150}
+            width={150}
+            height={200}
             style={{ cursor: "pointer" }}
           />
         </ChakraLink>
       </Box>
 
       {/* CENTER — NAV ITEMS */}
-      <Flex
-        flex="1"
-        justify="center"
-        display={{ base: "none", md: "flex" }}
-      >
+      <Flex flex="1" justify="center" display={{ base: "none", md: "flex" }}>
         <HStack as="nav" gap={6}>
           {navItems.map((item, i) => (
             <ChakraLink

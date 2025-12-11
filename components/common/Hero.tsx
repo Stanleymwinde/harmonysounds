@@ -25,6 +25,7 @@ const HeroSection: React.FC = () => {
         bgSize="cover"
         bgPos="center"
         zIndex={0}
+        filter="brightness(0.6)"
       />
 
       {/* Content */}
