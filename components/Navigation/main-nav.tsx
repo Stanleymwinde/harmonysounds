@@ -78,17 +78,15 @@ const MainNav = () => {
 
       {/* RIGHT — SOCIAL MEDIA ICONS */}
       <HStack gap={4} display={{ base: "none", md: "flex" }}>
-        <ChakraLink href="#" target="_blank">
+        <ChakraLink href="https://www.facebook.com/HarmonySoundsEntertainment" target="_blank">
           <FaFacebook size={22} />
         </ChakraLink>
 
-        <ChakraLink href="#" target="_blank">
+        <ChakraLink href="https://www.instagram.com/harmonysoundsentke/" target="_blank">
           <FaInstagram size={22} />
         </ChakraLink>
 
-        <ChakraLink href="#" target="_blank">
-          <FaTwitter size={22} />
-        </ChakraLink>
+        
       </HStack>
 
       {/* MOBILE NAV */}

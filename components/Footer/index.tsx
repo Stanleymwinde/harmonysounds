@@ -30,10 +30,12 @@ export default function Footer() {
 
           {/* Social Icons (BLACK) */}
           <Flex pt={4} gap={5} align="center">
-            <Icon as={FaFacebookF} boxSize={5} color="black" cursor="pointer" />
-            <Icon as={FaTwitter} boxSize={5} color="black" cursor="pointer" />
-            <Icon as={FaDribbble} boxSize={5} color="black" cursor="pointer" />
-            <Icon as={FaInstagram} boxSize={5} color="black" cursor="pointer" />
+            <ChakraLink href="https://www.facebook.com/HarmonySoundsEntertainment" target="_blank" rel="noopener noreferrer">
+              <Icon as={FaFacebookF} boxSize={5} color="black" cursor="pointer" />
+            </ChakraLink>
+            <ChakraLink href="https://www.instagram.com/harmonysoundsentke/" target="_blank" rel="noopener noreferrer">
+              <Icon as={FaInstagram} boxSize={5} color="black" cursor="pointer" />
+            </ChakraLink>
           </Flex>
         </Stack>
 
