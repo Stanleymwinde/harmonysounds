@@ -51,8 +51,8 @@ const MainNav = () => {
             priority
             src="/Images/hs-logo.png"
             alt="logo"
-            width={150}
-            height={200}
+            width={100}
+            height={150}
             style={{ cursor: "pointer" }}
           />
         </ChakraLink>
