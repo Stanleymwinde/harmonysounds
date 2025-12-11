@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Box, Container, Heading, Button } from '@chakra-ui/react';
 import { marginX } from '@/utils/constants';
 
@@ -13,36 +14,39 @@ const CTASection: React.FC = () => {
         <Box textAlign="center">
           <Heading
             as="h2"
-            fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-            fontWeight="bold"
+            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
+            fontWeight="medium"
             lineHeight="1.3"
             color="white"
             mb={8}
-            maxW="900px"
+            maxW="700px"
             mx="auto"
             transform={{ base: "translateX(10px)", md: "translateX(25px)" }} 
           >
             Let's create something awesome together
           </Heading>
 
-          <Button
-            bg="pink.500"
-            color="white"
-            size="lg"
-            px={12}
-            py={7}
-            fontSize="md"
-            fontWeight="medium"
-            borderRadius="full"
-            _hover={{
-              bg: 'pink.600',
-              transform: 'translateY(-2px)',
-              boxShadow: 'xl',
-            }}
-            transition="all 0.3s"
-          >
-            Discuss Project Or Event
-          </Button>
+          <Link href="/ContactUs">
+            <Button
+              bg="pink.500"
+              color="white"
+              size="lg"
+              px={12}
+              py={7}
+              fontSize="md"
+              fontWeight="medium"
+              borderRadius="full"
+              _hover={{
+                bg: 'pink.600',
+                transform: 'translateY(-2px)',
+                boxShadow: 'xl',
+              }}
+              transition="all 0.3s"
+              cursor="pointer"
+            >
+              Discuss Project Or Event
+            </Button>
+          </Link>
         </Box>
       </Container>
     </Box>

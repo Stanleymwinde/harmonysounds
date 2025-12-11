@@ -10,7 +10,7 @@ const OurTeamSection: React.FC = () => {
           <Heading
             as="h2"
             fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-            fontWeight="bold"
+            fontWeight="Medium"
             lineHeight="1.2"
             mb={6}
             color="black"
@@ -19,7 +19,7 @@ const OurTeamSection: React.FC = () => {
           </Heading>
 
           <Text
-            fontSize={{ base: 'md', md: 'lg' }}
+             fontSize={{ base: "sm", md: "md" }}
             lineHeight="1.8"
             color="gray.500"
             mb={6}
@@ -32,7 +32,7 @@ const OurTeamSection: React.FC = () => {
           </Text>
 
           <Text
-            fontSize={{ base: 'md', md: 'lg' }}
+             fontSize={{ base: "sm", md: "md" }}
             lineHeight="1.8"
             color="gray.500"
             mb={6}
@@ -41,7 +41,7 @@ const OurTeamSection: React.FC = () => {
           </Text>
 
           <Text
-            fontSize={{ base: 'md', md: 'lg' }}
+           fontSize={{ base: "sm", md: "md" }}
             lineHeight="1.8"
             color="black"
             fontWeight="semibold"

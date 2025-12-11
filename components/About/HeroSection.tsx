@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
       alignItems="center"
       position="relative"
     >
-      <Container marginX={marginX} px={8}>
+      <Container marginX={marginX} pl={{ base: 12, md: 16, lg: 24 }} pr={8} px={8}>
         <HStack
           color="rgba(255, 255, 255, 0.9)"
           fontSize="sm"

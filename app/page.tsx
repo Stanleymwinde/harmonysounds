@@ -5,6 +5,8 @@ import Service from "@/components/Services/Service";
 import ProjectGallery from "@/components/Projects/ProjectGallery";
 import {Testimonial} from "@/components/About";
 import {CTASection} from "@/components/About";
+import Partners from "@/components/common/Partners";
+import AboutSection from "@/components/common/AboutSection";
 
 
 
@@ -13,7 +15,9 @@ import {CTASection} from "@/components/About";
 const page = () => {
   return (
     <>
-      <Hero />;
+      <Hero />
+      <Partners />
+      <AboutSection />
         <Service />
         <ProjectGallery />
         <Testimonial />

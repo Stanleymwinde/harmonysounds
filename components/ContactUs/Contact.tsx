@@ -11,11 +11,12 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { MdLocationOn, MdEmail, MdPhoneIphone } from "react-icons/md";
+import { marginX } from '@/utils/constants';
 
 
 export default function Contact() {
   return (
-    <Box bg="white" px="60px" py="80px">
+    <Box marginX={marginX} pl={{ base: 12, md: 16, lg: 24 }} pr={8} bg="white" px="60px" py="80px">
       {/* Heading */}
       <Text
         fontSize="36px"
@@ -98,7 +99,7 @@ export default function Contact() {
           {/* Address */}
           <HStack align="flex-start" gap={4}>
             <Icon as={MdLocationOn} boxSize={6} color="#8b8b8b" />
-            <Text fontSize="15px" color="#3c3c3c">
+            <Text fontSize="15px" color="blue.800">
               North Airport Road, Behind Even Business Park <br />
               Nairobi, Kenya
             </Text>
