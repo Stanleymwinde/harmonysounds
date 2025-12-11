@@ -34,7 +34,7 @@ const projects: ProjectItem[] = [
 const ProjectGallery: React.FC = () => {
   return (
     <Box bg="white" py={{ base: 8, md: 12 }}>
-      <Container marginX={marginX} px={{ base: 6, md: 8 }}>
+      <Container marginX={marginX} pl={{ base: 12, md: 16, lg: 24 }} pr={8}  px={{ base: 6, md: 8 }}>
 
         {/* ---- OUR WORK HEADING ---- */}
         <Text
@@ -65,9 +65,9 @@ const ProjectGallery: React.FC = () => {
                 src={project.img}
                 alt={project.subtitle}
                 w="100%"
-                h={{ base: "420px", md: "520px" }}
+                h={{ base: "300px", md: "380px" }}
                 objectFit="cover"
-                objectPosition="center"
+                objectPosition="center top"
                 transition="transform 0.55s ease"
                 _groupHover={{ transform: "scale(1.06)" }}
                 display="block"

@@ -57,6 +57,7 @@ const TestimonialsSection: React.FC = () => {
             fontWeight="bold"
             lineHeight="1.2"
             color="black"
+            maxW={650}
           >
             What Our Clients Say About Us
           </Heading>
