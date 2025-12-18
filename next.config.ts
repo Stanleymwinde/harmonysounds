@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
   /* config options here */
   experimental: {
     optimizePackageImports: ["@chakra-ui/react", "@chakra-ui/icons"],
