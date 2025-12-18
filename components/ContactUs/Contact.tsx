@@ -1,4 +1,6 @@
 "use client";
+
+import React, { useRef } from "react";
 import {
   Box,
   Grid,
@@ -11,12 +13,44 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { MdLocationOn, MdEmail, MdPhoneIphone } from "react-icons/md";
-import { marginX } from '@/utils/constants';
-
+import emailjs from "@emailjs/browser";
+import { marginX } from "@/utils/constants";
 
 export default function Contact() {
+  const form = useRef<HTMLFormElement | null>(null);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        "service_rhrpoxj",
+        "template_v21ls69",
+        form.current,
+        "GInOVYhjRG3bhl4Rc"
+      )
+      .then(
+        () => {
+          console.log("SUCCESS: Email sent");
+          form.current?.reset();
+        },
+        (error) => {
+          console.error("FAILED:", error.text);
+        }
+      );
+  };
+
   return (
-    <Box marginX={marginX} pl={{ base: 12, md: 16, lg: 24 }} pr={8} bg="white" px="60px" py="80px">
+    <Box
+      marginX={marginX}
+      pl={{ base: 12, md: 16, lg: 24 }}
+      pr={8}
+      bg="white"
+      px="60px"
+      py="80px"
+    >
       {/* Heading */}
       <Text
         fontSize="36px"
@@ -35,9 +69,10 @@ export default function Contact() {
         alignItems="flex-start"
       >
         {/* Left Form */}
-        <Box>
-          {/* Message Textarea */}
+        <Box as="form" ref={form} onSubmit={sendEmail}>
+          {/* Message */}
           <Textarea
+            name="message"
             placeholder="Enter Message"
             height="220px"
             border="1px solid #f2eafa"
@@ -46,31 +81,38 @@ export default function Contact() {
             py="15px"
             mb="25px"
             _focus={{ borderColor: "#d3c7e6", boxShadow: "none" }}
+            required
           />
 
           {/* Name + Email */}
           <HStack gap={5} mb="25px">
             <Input
+              name="user_name"
               placeholder="Enter your name"
               border="1px solid #f2eafa"
               height="55px"
               borderRadius="5px"
               px="15px"
               _focus={{ borderColor: "#d3c7e6", boxShadow: "none" }}
+              required
             />
 
             <Input
+              name="user_email"
+              type="email"
               placeholder="Enter email address"
               border="1px solid #f2eafa"
               height="55px"
               borderRadius="5px"
               px="15px"
               _focus={{ borderColor: "#d3c7e6", boxShadow: "none" }}
+              required
             />
           </HStack>
 
           {/* Subject */}
           <Input
+            name="subject"
             placeholder="Enter Subject"
             height="55px"
             border="1px solid #f2eafa"
@@ -78,10 +120,12 @@ export default function Contact() {
             px="15px"
             mb="30px"
             _focus={{ borderColor: "#d3c7e6", boxShadow: "none" }}
+            required
           />
 
           {/* Send Button */}
           <Button
+            type="submit"
             bg="#d4007a"
             color="white"
             px="40px"
