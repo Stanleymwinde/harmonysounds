@@ -1,4 +1,6 @@
 "use client";
+
+import React, { useRef } from "react";
 import {
   Box,
   Grid,
@@ -11,51 +13,44 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { MdLocationOn, MdEmail, MdPhoneIphone } from "react-icons/md";
-import { marginX } from '@/utils/constants';
-import { useState } from 'react';
-import emailjs from '@emailjs/browser';
-
+import emailjs from "@emailjs/browser";
+import { marginX } from "@/utils/constants";
 
 export default function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const form = useRef<HTMLFormElement | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
 
-    try {
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        {
-          from_name: name,
-          from_email: email,
-          subject: subject,
-          message: message,
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        "service_rhrpoxj",
+        "template_v21ls69",
+        form.current,
+        "GInOVYhjRG3bhl4Rc"
+      )
+      .then(
+        () => {
+          console.log("SUCCESS: Email sent");
+          form.current?.reset();
         },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        (error) => {
+          console.error("FAILED:", error.text);
+        }
       );
-
-      alert('Message sent! Thank you for contacting us. We will get back to you soon.');
-
-      // Reset form
-      setName('');
-      setEmail('');
-      setSubject('');
-      setMessage('');
-    } catch (error) {
-      alert('Error sending message. Please try again later or contact us directly.');
-    } finally {
-      setIsLoading(false);
-    }
   };
 
   return (
-    <Box marginX={marginX} pl={{ base: 12, md: 16, lg: 24 }} pr={8} bg="white" px="60px" py="80px">
+    <Box
+      marginX={marginX}
+      pl={{ base: 12, md: 16, lg: 24 }}
+      pr={8}
+      bg="white"
+      px="60px"
+      py="80px"
+    >
       {/* Heading */}
       <Text
         fontSize="36px"
@@ -74,9 +69,10 @@ export default function Contact() {
         alignItems="flex-start"
       >
         {/* Left Form */}
-        <Box as="form" onSubmit={handleSubmit}>
-          {/* Message Textarea */}
+        <Box as="form" ref={form} onSubmit={sendEmail}>
+          {/* Message */}
           <Textarea
+            name="message"
             placeholder="Enter Message"
             height="220px"
             border="1px solid #f2eafa"
@@ -85,41 +81,38 @@ export default function Contact() {
             py="15px"
             mb="25px"
             _focus={{ borderColor: "#d3c7e6", boxShadow: "none" }}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
             required
           />
 
           {/* Name + Email */}
           <HStack gap={5} mb="25px">
             <Input
+              name="user_name"
               placeholder="Enter your name"
               border="1px solid #f2eafa"
               height="55px"
               borderRadius="5px"
               px="15px"
               _focus={{ borderColor: "#d3c7e6", boxShadow: "none" }}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
               required
             />
 
             <Input
-              placeholder="Enter email address"
+              name="user_email"
               type="email"
+              placeholder="Enter email address"
               border="1px solid #f2eafa"
               height="55px"
               borderRadius="5px"
               px="15px"
               _focus={{ borderColor: "#d3c7e6", boxShadow: "none" }}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </HStack>
 
           {/* Subject */}
           <Input
+            name="subject"
             placeholder="Enter Subject"
             height="55px"
             border="1px solid #f2eafa"
@@ -127,11 +120,10 @@ export default function Contact() {
             px="15px"
             mb="30px"
             _focus={{ borderColor: "#d3c7e6", boxShadow: "none" }}
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
             required
           />
 
+          {/* Send Button */}
           <Button
             type="submit"
             bg="#d4007a"
@@ -141,8 +133,6 @@ export default function Contact() {
             borderRadius="2px"
             fontWeight="600"
             _hover={{ bg: "#b30068" }}
-            loading={isLoading}
-            loadingText="Sending..."
           >
             SEND MESSAGE
           </Button>

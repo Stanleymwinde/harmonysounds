@@ -10,22 +10,22 @@ interface ProjectItem {
 
 const projects: ProjectItem[] = [
   {
-    img: "/images/international-telecommunicatio-union-conference.jpg",
+    img: "/images/international-telecommunicatio-union-conference-final.jpg",
     title: "Web development",
     subtitle: "INTERNATIONAL TELECOMMUNICATION UNION CONFERENCE",
   },
   {
-    img: "/images/high-court-judiciary.jpg",
+    img: "/images/high-court-judiciary -final.jpg",
     title: "Web development",
     subtitle: "HIGH COURT JUDICIARY",
   },
   {
-    img: "/images/safaricom-golf-tour.jpg",
+    img: "/images/safaricom-golf-tour -final.jpg",
     title: "Web development",
     subtitle: "SAFARICOM GOLF TOUR",
   },
   {
-    img: "/images/gender-balance.jpg",
+    img: "/images/gender-balance-final.jpg",
     title: "Web development",
     subtitle: "GENDER BALANCE",
   },
